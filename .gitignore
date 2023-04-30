@@ -1,0 +1,31 @@
+# vue ---------------------------------------------------
+/music-hall-vue-app/.DS_Store
+/music-hall-vue-app/node_modules
+/music-hall-vue-app/dist
+
+# local env files
+/music-hall-vue-app/.env.local
+/music-hall-vue-app/.env.*.local
+
+# Log files
+/music-hall-vue-app/npm-debug.log*
+/music-hall-vue-app/yarn-debug.log*
+/music-hall-vue-app/yarn-error.log*
+/music-hall-vue-app/pnpm-debug.log*
+
+# Editor directories and files
+/music-hall-vue-app/.idea
+/music-hall-vue-app/.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# maven ---------------------------------------------------
+/music-hall-server/.idea
+/music-hall-server/src/test
+/music-hall-server/target
+/music-hall-server/.project
+/music-hall-server/.settings
+
