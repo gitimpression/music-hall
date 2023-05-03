@@ -7,17 +7,12 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author ctp
- * @date 2023/5/1 11:30
+ * @date 2023/5/1 9:47
  */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class MusicVO {
-    private String name;
-    private String singer;
-    private String album;
-    private Integer duration;
-    private String size;
-    private String img;
+public class UserVO {
+    private String account;
 }
