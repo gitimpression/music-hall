@@ -2,5 +2,28 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="zone.ctp.musichall.mapper.UserMapper">
+
+    <sql id="allColumn">
+        `id`, `account`, `password`
+    </sql>
+    <sql id="tableUser">
+        `user`
+    </sql>
+    <select id="selectOne" resultType="zone.ctp.musichall.entity.User">
+        select <include refid="allColumn"/>
+        from <include refid="tableUser"/>
+        <where>
+            <if test="user.id != null">
+                id = #{user.id}
+            </if>
+            <if test="user.account != null and user.account != ''">
+                and `account` = #{user.account}
+            </if>
+            <if test="user.password != null and user.password != ''">
+                and `password` = #{user.password}
+            </if>
+        </where>
+        limit 1
+    </select>
 </mapper>

@@ -1,0 +1,21 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: music-hall
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/music-hall?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: '0101'
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: zone.ctp.musichall.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+# 自定义配置
+music-hall:
+  init:
+    dir-source: "F:\\酷狗音乐\\歌曲" # 音乐文件所在位置
+    file-extend-name: ".mp3" # 初始化时 仅处理指定类型文件

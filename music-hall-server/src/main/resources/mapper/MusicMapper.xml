@@ -1,0 +1,23 @@
+<?xm1 version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zone.ctp.musichall.mapper.MusicMapper">
+    <insert id="insert">
+        insert into `music`
+        values (null, #{music.name}, #{music.album}, #{music.singer}, #{music.duration}, #{music.size}, #{music.img})
+    </insert>
+
+    <insert id="batchInsert">
+        insert into `music`
+        values
+        <foreach collection="musicList" item="music" separator=",">
+            (null, #{music.name}, #{music.album}, #{music.singer}, #{music.duration}, #{music.size}, #{music.img})
+        </foreach>
+    </insert>
+
+    <select id="list" resultType="zone.ctp.musichall.vo.MusicVO">
+        select * from `music`
+    </select>
+
+</mapper>
