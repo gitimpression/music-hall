@@ -1,9 +1,7 @@
 <template>
   <div class="content-panel">
-    包含 歌曲和歌手两部分
     <!-- singer content -->
     <span>
-
       <ul>
         <li>正在播放：{{ music.name }}</li>
         <li>歌手：{{ music.singer }}</li>

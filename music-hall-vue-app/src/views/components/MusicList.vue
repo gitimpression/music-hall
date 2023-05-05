@@ -9,7 +9,7 @@
         <li v-show="musicData.length == 0">
           无数据
         </li>
-        <li :class="{active: activeMusicName == item.name}" v-for="item in musicData" :key="item.name"
+        <li :class="{active: playingMusic.name == item.name}" v-for="item in musicData" :key="item.name"
           @dblclick="handleMusicItemClick(item)" onselectstart="return false" :title="item.name">
           {{ item.name }}</li>
       </ul>
@@ -24,18 +24,20 @@ export default {
     musicData: {
       type: Array,
       require: true
+    },
+    playingMusic: {
+      type: Object,
+      require: false
     }
   },
   data() {
     return {
-      keyword: "",
-      activeMusicName: -1
+      keyword: "邓紫棋",
     }
   },
   methods: {
     // 歌单被双击
     handleMusicItemClick(music) {
-      this.activeMusicName = music.name
       this.$emit("changeCurrentMusic", music)
     }
   },
