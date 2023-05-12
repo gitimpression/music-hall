@@ -34,8 +34,8 @@ export default {
       },
       loadingMsg: "loading",
       user: {
-        account: "admin",
-        password: "admin"
+        account: "",
+        password: ""
       }
     }
   },
@@ -62,8 +62,17 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+// 输入框
+$inputFontSize: 1.5rem
+// 按钮
+$buttonFontSize: 1.25rem
+// 提示信息
+$msgFontSize: .5rem
+// 登陆面板宽度
+$panelWidth: 20rem
+
 .login-panel
-  width: 300px
+  width: $panelWidth
   background-color: white
   display: flex
   flex-direction: column
@@ -79,7 +88,7 @@ export default {
   input
     margin-bottom: 20px
     outline: none
-    font-size: 18px
+    font-size: $inputFontSize
     padding: 4px
     background-color: transparent
     border: none
@@ -88,7 +97,7 @@ export default {
     &:focus
       border-bottom-color: black
   button
-    font-size: 18px
+    font-size: $buttonFontSize
     padding: 4px
     cursor: pointer
     margin-bottom: 16px
@@ -99,7 +108,7 @@ export default {
       border-color: black
   .msg
     text-align: left
-    font-size: 14px
+    font-size: $msgFontSize
   .login-loading
     position: absolute
     top: 0
@@ -113,6 +122,22 @@ export default {
       display: flex
       justify-content: center
       align-items: center
+
+@media (min-width: 0px) and (max-width: 375px)
+  .login-panel
+    width: 70%
+    .msg
+      font-size: 1rem
+
+@media (min-width: 375px) and (max-width: 412px)
+  .login-panel
+    width: 70%
+    input
+      font-size: 1.25rem
+    button
+      font-size: 1.25rem
+    .msg
+      font-size: .75rem
 
 // 提示消息类型样式
 .error

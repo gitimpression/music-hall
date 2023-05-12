@@ -24,7 +24,6 @@ import MusicList from "@/views/components/MusicList.vue";
 import Content from "@/views/components/Content.vue";
 import Player from "@/views/components/Player.vue";
 
-
 export default {
   name: 'Home',
   components: {
@@ -46,7 +45,6 @@ export default {
     },
     // 切歌
     changeCurrentMusic(music) {
-      console.log(window.navigator.onLine);
       // 网络在线
       if (window.navigator.onLine) {
         // 当前歌曲信息
@@ -147,4 +145,16 @@ export default {
     flex-direction: column
     width: 100%
     height: 100%
+
+@media ( min-width: 0px) and ( max-width: 820px)
+  .home
+    .left
+      margin-bottom: 74px
+      width: 100%
+      padding: 10px
+      width: calc( 100% - 20px )
+      .music-list-panel
+        width: 100%
+    .right
+      width: 0px
 </style>

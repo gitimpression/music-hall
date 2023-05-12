@@ -453,22 +453,20 @@ export default {
   height: 80px
   color: white
   background-color: rgba(255, 255, 255, 0.1)
-  position: absolute
-  bottom: 0
-  left: 320px
+  display: flex
+  flex-direction: row
+  justify-content: center
   .player-control
     display: flex
     align-items: center
     .play-control-btn
-      margin-left: 24px
-      margin-top: 24px
+      margin-right: 12px
+      margin-left: 12px
       cursor: pointer
     .controls-bar
-      padding-left: 20px
       display: flex
       flex-direction: column
       align-items: center
-      padding-top: 22px
       .music-info
         width: 100%
         display: flex
@@ -517,7 +515,6 @@ export default {
       width: 160px
       height: 40px
       margin-left: 20px
-      margin-top: 20px
       display: flex
       flex-direction: row
       align-items: center
@@ -544,4 +541,92 @@ export default {
       margin-left: 20px
       margin-top: 24px
       cursor: pointer
+
+@media ( min-width: 0px) and ( max-width: 1120px)
+  .player-panel
+    position: fixed
+    bottom: 0
+    left: 0
+    width: 100%
+    background-color: #131417
+    .player-control
+      .volume-control
+        display: none
+      .play-mode
+        display: none
+
+@media ( min-width: 0px) and ( max-width: 540px)
+  .player-panel
+    .player-control
+      .play-control-btn
+        margin-right: 12px
+        margin-top: 10px
+        svg
+          width: 32px
+          height: 32px
+      .controls-bar
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        .music-info
+          display: none
+          .time
+            height: 24px
+            line-height: 24px
+            font-size: 16px
+        .play-bar
+          width: 100%
+          .drag-playhead
+            .playhead
+              display: none
+
+@media ( min-width: 540px) and ( max-width: 712px)
+  .player-panel
+    .player-control
+      .play-control-btn
+        margin-right: 12px
+        svg
+          width: 32px
+          height: 32px
+      .controls-bar
+        .music-info
+          height: 24px
+          .singer
+            width: 280px
+            height: 24px
+            .singer-info
+              height: 24px
+              line-height: 24px
+              font-size: 16px
+          .time
+            height: 24px
+            line-height: 24px
+            font-size: 16px
+        .play-bar
+          width: 380px
+
+@media ( min-width: 712px) and ( max-width: 1120px)
+  .player-panel
+    .player-control
+      .play-control-btn
+        svg
+          width: 40px
+          height: 40px
+      .controls-bar
+        .music-info
+          height: 24px
+          .singer
+            width: 400px
+            height: 24px
+            .singer-info
+              height: 24px
+              line-height: 24px
+              font-size: 24px
+          .time
+            height: 24px
+            line-height: 24px
+            font-size: 24px
+        .play-bar
+          width: 500px
 </style>

@@ -6,6 +6,7 @@ axios.defaults.timeout = 10000 * 5;
 axios.defaults.headers.post["Content-Type"] = "application/json";
 // 请求基础URL
 axios.defaults.baseURL = "/api";
+// axios.defaults.baseURL = "http://49.234.225.78:8090/";
 
 // 请求拦截器
 axios.interceptors.request.use(

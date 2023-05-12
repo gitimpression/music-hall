@@ -39,9 +39,14 @@ export default {
 
 <style lang="sass" scoped>
 .content-panel
+  min-width: 300px
   width: calc( 100% - 40px )
   height: calc( 100% - 120px )
   color: white
   background-color: rgba(255, 255, 255, .2)
   padding: 20px
+
+@media ( min-width: 0px) and ( max-width: 820px)
+  .content-panel
+    display: none
 </style>

@@ -10,7 +10,7 @@
           无数据
         </li>
         <li :class="{active: playingMusic.name == item.name}" v-for="item in musicData" :key="item.name"
-          @dblclick="handleMusicItemClick(item)" onselectstart="return false" :title="item.name">
+          @click="handleMusicItemClick(item)" onselectstart="return false" :title="item.name">
           {{ item.name }}</li>
       </ul>
     </div>
@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      keyword: "邓紫棋",
+      keyword: "",
     }
   },
   methods: {
@@ -61,7 +61,6 @@ export default {
   width: 300px
   height: 100%
   background-color: rgba(255, 255, 255, 0.05)
-  padding: 20px 10px
   display: inline-block
   .search
     width: 100%
@@ -93,6 +92,28 @@ export default {
         overflow: hidden
         &:hover
           color: #959595
+
+@media ( min-width: 0px) and ( max-width: 540px)
+  .music-list-panel
+    .search
+      input
+        font-size: 18px
+    .list
+      ul
+        li
+          font-size: 18px
+          margin-bottom: 6px
+
+@media ( min-width: 540px) and ( max-width: 820px)
+  .music-list-panel
+    .search
+      input
+        font-size: 22px
+    .list
+      ul
+        li
+          font-size: 22px
+          margin-bottom: 10px
 
 // 正在播放的音乐
 .active
