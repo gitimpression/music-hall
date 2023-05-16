@@ -19,7 +19,7 @@
 - 上一曲/下一曲 :white_check_mark: 0505
 - 进度控制 :white_check_mark: 0505
 - 音量控制 :white_check_mark: 0505
-- 倍速控制
+- 倍速控制 :heavy_minus_sign:
 
 
 
@@ -31,5 +31,11 @@
 
 0512
 
-- 实现Content页、展示歌曲信息
+- 实现Content页、展示歌曲信息 :white_check_mark: 0516
+
+- 修复进度及音量控制bug :ballot_box_with_check: 0516
+
+
+
+
 

@@ -99,7 +99,7 @@
         </div>
       </div>
       <!-- 播放模式 -->
-      <div class="play-mode">
+      <div class="play-mode" style="display: none">
         <!-- 顺序播放 -->
         <svg v-show="playMode=='seq'" @click="handleChangePlayMode('ran')" t="1683277907229" class="icon"
           viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2128" width="16" height="16">
@@ -141,7 +141,7 @@ export default {
       isVolume: false, // 是否正在拖动音量条
       playheadMarginLeft: 0, // 进度点位移
       volumeMarginLeft: 0, // 音量点偏移
-      defaultVolume: 0.3, // 播放器 默认音量
+      defaultVolume: 0.8, // 播放器 默认音量
       lyricsAnimTimer: null, // 歌词动画
       playMode: "seq", // 默认播放模式为顺序播放
     }
@@ -172,6 +172,9 @@ export default {
     // 歌曲可以播放
     handleMusicCanplay() {
       console.log("canplay ...");
+      if (!this.music.duration) {
+        this.music.duration = Math.floor(this.$refs.audio.duration)
+      }
       if (this.playing) {
         this.$refs.audio.play()
       }
@@ -253,10 +256,12 @@ export default {
     },
     // 音量控制 - 拖动 音量条
     handleVolumeBarMousemove(e) {
-      // 设置偏移
-      this.setVolumeMarginLeft(e)
-      // 设置音量
-      this.setVolume()
+      if (this.isVolume) {
+        // 设置偏移
+        this.setVolumeMarginLeft(e)
+        // 设置音量
+        this.setVolume()
+      }
     },
     // 音量控制 - 按下 控制点
     handleVolumeHeadMousedown() {
@@ -275,7 +280,7 @@ export default {
     // 设置音量
     setVolume() {
       // 根据偏移确定音量大小
-      let v = (this.volumeMarginLeft / document.getElementById("volume-bar").offsetWidth).toFixed(1)
+      let v = (this.volumeMarginLeft / this.$refs.volumeBar.offsetWidth).toFixed(1)
       if (v > 0 && v < 1) {
         this.$refs.audio.volume = v
       }
@@ -290,14 +295,14 @@ export default {
     // 设置 进度控制点 偏移量
     setPlayheadMarginLeft(e) {
       if (this.isDraging) {
-        let x = e.pageX - 320 - this.$refs.dragPointer.offsetLeft - 5
+        let x = e.pageX - this.$refs.dragPointer.offsetLeft - 5
         this.playheadMarginLeft += x
       }
     },
     // 设置 音量控制点 偏移量
     setVolumeMarginLeft(e) {
       if (this.isVolume) {
-        let x = e.pageX - 320 - this.$refs.volumeHead.offsetLeft - 5
+        let x = e.pageX - this.$refs.volumeHead.offsetLeft - 5
         this.volumeMarginLeft += x
       }
     },
@@ -407,7 +412,7 @@ export default {
       return this.volumeMarginLeft + "px"
     },
     getMusicName() {
-      return this.music.name ? this.music.name : ""
+      return this.music.name ? this.music.name : "未在播放"
     }
   },
   filters: {
@@ -449,10 +454,11 @@ export default {
 
 <style lang="sass" scoped>
 .player-panel
+  z-index: 9
   width: 100%
   height: 80px
   color: white
-  background-color: rgba(255, 255, 255, 0.1)
+  background-color: rgba(0, 0, 0, 0.5)
   display: flex
   flex-direction: row
   justify-content: center

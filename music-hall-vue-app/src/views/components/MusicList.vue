@@ -58,9 +58,11 @@ export default {
 
 <style lang="sass" scoped>
 .music-list-panel
+  position: relative
+  z-index: 9
   width: 300px
   height: 100%
-  background-color: rgba(255, 255, 255, 0.05)
+  background-color: rgba(0, 0, 0, 0.5)
   display: inline-block
   .search
     width: 100%
